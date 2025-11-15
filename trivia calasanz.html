@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia sobre San José de Calasanz</title>
+
+    <style>
+        /* Estilos del modal */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1000;
+        }
+
+        .modal-contenido {
+            background: white;
+            margin: 5% auto;
+            padding: 20px;
+            max-width: 600px;
+
+            /* 🔥 FIX: altura limitada + scroll interno */
+            max-height: 80vh;
+            overflow-y: auto;
+
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .cerrar {
+            float: right;
+            cursor: pointer;
+            font-size: 22px;
+        }
+
+        .correcta {
+            color: green;
+            font-weight: bold;
+        }
+
+        .incorrecta {
+            color: red;
+            font-weight: bold;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Sección principal -->
+    <section id="jugar-trivia">
+        <h2>Trivia Académica: San José de Calasanz</h2>
+        <p>Haz clic en el botón para poner a prueba tus conocimientos.</p>
+        <button id="abrirTrivia">Iniciar Trivia</button>
+    </section>
+
+    <!-- Ventana modal -->
+    <div id="modalTrivia" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+
+            <h2>Evaluación: Conocimientos sobre San José de Calasanz</h2>
+
+            <!-- Formulario -->
+            <form id="formTrivia">
+
+                <p><strong>1.</strong> ¿Dónde nació San José de Calasanz?</p>
+                <label><input type="radio" name="p1" value="Madrid"> Madrid</label><br>
+                <label><input type="radio" name="p1" value="Peralta de la Sal"> Peralta de la Sal</label><br>
+                <label><input type="radio" name="p1" value="Roma"> Roma</label><br><br>
+
+                <p><strong>2.</strong> ¿En qué año nació?</p>
+                <label><input type="radio" name="p2" value="1556"> 1556</label><br>
+                <label><input type="radio" name="p2" value="1656"> 1656</label><br>
+                <label><input type="radio" name="p2" value="1756"> 1756</label><br><br>
+
+                <p><strong>3.</strong> ¿Dónde estableció la primera escuela gratuita?</p>
+                <label><input type="radio" name="p3" value="Zaragoza"> Zaragoza</label><br>
+                <label><input type="radio" name="p3" value="Roma"> Roma</label><br>
+                <label><input type="radio" name="p3" value="Barcelona"> Barcelona</label><br><br>
+
+                <p><strong>4.</strong> ¿Qué lema resume su propuesta educativa?</p>
+                <label><input type="radio" name="p4" value="Fe y razón"> Fe y razón</label><br>
+                <label><input type="radio" name="p4" value="Justicia y amor"> Justicia y amor</label><br>
+                <label><input type="radio" name="p4" value="Piedad y letras"> Piedad y letras</label><br><br>
+
+                <p><strong>5.</strong> ¿Cuándo se celebra su festividad?</p>
+                <label><input type="radio" name="p5" value="25 de agosto"> 25 de agosto</label><br>
+                <label><input type="radio" name="p5" value="12 de octubre"> 12 de octubre</label><br>
+                <label><input type="radio" name="p5" value="15 de mayo"> 15 de mayo</label><br><br>
+
+                <button type="submit">Enviar respuestas</button>
+            </form>
+
+            <div id="resultado"></div>
+        </div>
+    </div>
+
+    <script>
+        /* Abrir y cerrar modal */
+        const modal = document.getElementById("modalTrivia");
+        const btnAbrir = document.getElementById("abrirTrivia");
+        const btnCerrar = document.querySelector(".cerrar");
+
+        btnAbrir.onclick = () => modal.style.display = "block";
+        btnCerrar.onclick = () => modal.style.display = "none";
+        window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+
+        /* Lógica de la trivia */
+        document.getElementById("formTrivia").addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            let puntaje = 0;
+            let salida = "";
+
+            const correctas = {
+                p1: "Peralta de la Sal",
+                p2: "1556",
+                p3: "Roma",
+                p4: "Piedad y letras",
+                p5: "25 de agosto"
+            };
+
+            for (let i = 1; i <= 5; i++) {
+                const r = document.querySelector(`input[name="p${i}"]:checked`);
+
+                if (!r) {
+                    salida += `<p class="incorrecta">${i}. No respondida. Respuesta correcta: ${correctas["p"+i]}.</p>`;
+                } else if (r.value === correctas["p"+i]) {
+                    puntaje++;
+                    salida += `<p class="correcta">${i}. Respuesta correcta.</p>`;
+                } else {
+                    salida += `<p class="incorrecta">${i}. Incorrecta. Respuesta correcta: ${correctas["p"+i]}.</p>`;
+                }
+            }
+
+            salida += `<h3>Puntaje final: ${puntaje} de 5</h3>`;
+
+            if (puntaje === 5) {
+                salida += "<p>Excelente desempeño. Demostraste un dominio completo del contenido.</p>";
+            } else if (puntaje >= 3) {
+                salida += "<p>Buen trabajo. Aún así, puedes repasar algunos aspectos para afianzar los conocimientos.</p>";
+            } else {
+                salida += "<p>Sería conveniente revisar nuevamente la información para mejorar tu comprensión del tema.</p>";
+            }
+
+            document.getElementById("resultado").innerHTML = salida;
+        });
+    </script>
+
+</body>
+</html>
