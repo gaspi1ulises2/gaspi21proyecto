@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia sobre el Beato José Ferrer Esteve</title>
+
+    <style>
+        /* Estilos del modal */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1000;
+        }
+
+        .modal-contenido {
+            background: white;
+            margin: 5% auto;
+            padding: 20px;
+            max-width: 600px;
+
+            max-height: 80vh;
+            overflow-y: auto;
+
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .cerrar {
+            float: right;
+            cursor: pointer;
+            font-size: 22px;
+        }
+
+        .correcta { color: green; font-weight: bold; }
+        .incorrecta { color: red; font-weight: bold; }
+
+        #resultado { margin-top: 20px; }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- BOTÓN PARA ABRIR TRIVIA -->
+<section id="jugar-trivia">
+    <h2>¿Querés poner a prueba tus conocimientos sobre el Beato José Ferrer Esteve?</h2>
+    <button id="abrirTrivia">Comenzar Trivia</button>
+</section>
+
+<!-- MODAL -->
+<div id="modalTrivia" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+
+        <h2>Trivia sobre el Beato José Ferrer Esteve</h2>
+
+        <form id="formTrivia">
+
+            <!-- PREGUNTA 1 -->
+            <p><strong>1.</strong> ¿En qué país nació José Ferrer Esteve?</p>
+            <label><input type="radio" name="p1" value="España"> España</label><br>
+            <label><input type="radio" name="p1" value="Francia"> Francia</label><br>
+            <label><input type="radio" name="p1" value="Italia"> Italia</label><br><br>
+
+            <!-- PREGUNTA 2 -->
+            <p><strong>2.</strong> ¿A qué orden religiosa pertenecía?</p>
+            <label><input type="radio" name="p2" value="Escolapios (Escuelas Pías)"> Escolapios (Escuelas Pías)</label><br>
+            <label><input type="radio" name="p2" value="Jesuitas"> Jesuitas</label><br>
+            <label><input type="radio" name="p2" value="Agustinos"> Agustinos</label><br><br>
+
+            <!-- PREGUNTA 3 -->
+            <p><strong>3.</strong> ¿En qué año fue martirizado?</p>
+            <label><input type="radio" name="p3" value="1936"> 1936</label><br>
+            <label><input type="radio" name="p3" value="1916"> 1916</label><br>
+            <label><input type="radio" name="p3" value="1950"> 1950</label><br><br>
+
+            <!-- PREGUNTA 4 -->
+            <p><strong>4.</strong> ¿Qué virtud destacó especialmente en su vida?</p>
+            <label><input type="radio" name="p4" value="Humildad y servicio a los pobres"> Humildad y servicio a los pobres</label><br>
+            <label><input type="radio" name="p4" value="Ambición política"> Ambición política</label><br>
+            <label><input type="radio" name="p4" value="Conocimientos militares"> Conocimientos militares</label><br><br>
+
+            <!-- PREGUNTA 5 -->
+            <p><strong>5.</strong> ¿Dónde fue martirizado?</p>
+            <label><input type="radio" name="p5" value="Barcelona"> Barcelona</label><br>
+            <label><input type="radio" name="p5" value="Madrid"> Madrid</label><br>
+            <label><input type="radio" name="p5" value="Valencia"> Valencia</label><br><br>
+
+            <button type="submit">Enviar respuestas</button>
+        </form>
+
+        <div id="resultado"></div>
+    </div>
+</div>
+
+<!-- CSS repetido del original -->
+<style>
+.modal {
+    display: none;
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+.modal-contenido {
+    background: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.cerrar {
+    float: right;
+    cursor: pointer;
+    font-size: 24px;
+}
+.correcta { color: green; }
+.incorrecta { color: red; }
+#resultado { margin-top: 1em; }
+</style>
+
+<!-- JAVASCRIPT -->
+<script>
+const modal = document.getElementById("modalTrivia");
+const btnAbrir = document.getElementById("abrirTrivia");
+const btnCerrar = document.querySelector(".cerrar");
+
+btnAbrir.onclick = () => { modal.style.display = "block"; };
+btnCerrar.onclick = () => { modal.style.display = "none"; };
+window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+
+document.getElementById("formTrivia").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let puntaje = 0;
+    let salida = "";
+
+    // Respuestas correctas del mártir José Ferrer Esteve
+    const correctas = {
+        p1: "España",
+        p2: "Escolapios (Escuelas Pías)",
+        p3: "1936",
+        p4: "Humildad y servicio a los pobres",
+        p5: "Barcelona"
+    };
+
+    for (let i = 1; i <= 5; i++) {
+        let r = document.querySelector(`input[name="p${i}"]:checked`);
+
+        if (r) {
+            if (r.value === correctas[`p${i}`]) {
+                puntaje++;
+                salida += `<p class='correcta'>${i}.  Correcta</p>`;
+            } else {
+                salida += `<p class='incorrecta'>${i}.  Incorrecta. Correcta: ${correctas[`p${i}`]}</p>`;
+            }
+        } else {
+            salida += `<p class='incorrecta'>${i}.  No respondida. Correcta: ${correctas[`p${i}`]}</p>`;
+        }
+    }
+
+    salida += `<h4>Puntaje final: ${puntaje} de 5</h4>`;
+
+    if (puntaje === 5) salida += "<p>¡Excelente trabajo!</p>";
+    else if (puntaje >= 3) salida += "<p>Muy bien, estás aprendiendo.</p>";
+    else salida += "<p>Podés repasar un poco más.</p>";
+
+    document.getElementById("resultado").innerHTML = salida;
+});
+</script>
+
+</body>
+</html>
