@@ -3,68 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <title>Beato José Ferrer Esteve</title>
-  <link rel="stylesheet" href="./ferrer.css">
+
   <style>
+    /* ---------- ESTILO GENERAL ---------- */
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      line-height: 1.6;
-      background-color: #f5f5f5;
+      margin: 0;
+      background: #e8f0d9;
       color: #333;
     }
+
     header {
+      background: #0f2915;
+      color: white;
       text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.7em;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    /* Contenedor general */
+    .contenido {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    /* ---------- SECCIONES ---------- */
+    .section {
+      background: #d6e5af;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 35px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      border-bottom: 2px solid #b7c48f;
+      padding-bottom: 5px;
+      color: #1e2d15;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    /* ---------- CITA ---------- */
+    .cita {
+      font-style: italic;
+      background: #eef3dd;
+      padding: 12px;
+      border-left: 4px solid #6d8c3a;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    /* ---------- TRIVIA ---------- */
+    .trivia-box {
+      background: #ffe0cc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .trivia-box a {
+      display: inline-block;
+      background: #e07a2e;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    /* ---------- IMÁGENES (AHORA MÁS CHICAS Y AL LADO) ---------- */
+    .imagenes-contenedor {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 20px;
       margin-bottom: 40px;
     }
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-    }
-    h2 {
-      color: #444;
-      margin-top: 30px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-    }
-
-    /* FORMATO UNIFICADO DE TODAS LAS SECCIONES */
-    .section {
-      background-color: #d6e5af;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    ul { margin-left: 20px; }
 
     .imagen {
-      display: block;
-      margin: 0 auto 20px;
-      max-width: 400px;
+      width: 230px;
+      height: auto;
       border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
     footer {
       text-align: center;
-      margin-top: 50px;
+      padding: 30px;
+      margin-top: 40px;
+      background: #0f2915;
+      color: white;
       font-size: 0.9em;
-      color: #666;
-    }
-
-    .cita {
-      font-style: italic;
-      background: #eef1f7;
-      padding: 10px;
-      border-left: 4px solid #8aa5d8;
-      margin: 15px 0;
-      border-radius: 5px;
-    }
-
-    .subtitulo {
-      font-weight: bold;
-      margin-top: 20px;
-      font-size: 1.1em;
     }
   </style>
 </head>
@@ -76,95 +122,100 @@
     <p>(Tortosa, 1879 – Barcelona, 13 de agosto de 1936)</p>
   </header>
 
-  <!-- Biografía -->
-  <div class="section">
-    <h2>Biografía</h2>
-    <p>
-      José Ferrer Esteve fue un laico católico español, esposo y padre de familia, 
-      recordado por su profunda fe, su vida de caridad y su testimonio heroico durante 
-      la persecución religiosa de 1936. Fue uno de los mártires beatificados por su 
-      valentía y fidelidad al Evangelio.
-    </p>
+  <div class="contenido">
 
-    <ul>
-      <li>Nació en Tortosa en una familia profundamente cristiana.</li>
-      <li>Destacado por su vida de oración y servicio en la parroquia.</li>
-      <li>Ayudaba a los pobres y a los enfermos de su comunidad.</li>
-      <li>Fue detenido durante la persecución religiosa por ser católico practicante.</li>
-      <li>Murió perdonando a sus perseguidores, entregando su vida por su fe.</li>
-    </ul>
+    <!-- Biografía -->
+    <div class="section">
+      <h2>Biografía</h2>
+      <p>
+        José Ferrer Esteve fue un laico católico español, esposo y padre de familia,
+        recordado por su profunda fe, su vida de caridad y su testimonio heroico durante
+        la persecución religiosa de 1936. Fue uno de los mártires beatificados por su
+        valentía y fidelidad al Evangelio.
+      </p>
 
-    <div class="cita">“La santidad también florece en la vida sencilla de un padre de familia.”</div>
-  </div>
+      <ul>
+        <li>Nació en Tortosa en una familia profundamente cristiana.</li>
+        <li>Destacado por su vida de oración y servicio en la parroquia.</li>
+        <li>Ayudaba a los pobres y a los enfermos de su comunidad.</li>
+        <li>Fue detenido durante la persecución religiosa por ser católico practicante.</li>
+        <li>Murió perdonando a sus perseguidores, entregando su vida por su fe.</li>
+      </ul>
 
-  <!-- Vida espiritual -->
-  <div class="section">
-    <h2>Vida espiritual y testimonio</h2>
-    <p>
-      Su testimonio fue el de un cristiano sencillo pero profundamente fiel. 
-      Su vida cotidiana, marcada por la caridad y la oración, fue la expresión más clara de su fe.
-    </p>
-
-    <h3>Rasgos destacados</h3>
-    <ul>
-      <li>Gran devoción a la Eucaristía y al Santo Rosario.</li>
-      <li>Servicio constante en su parroquia y ayuda a los más necesitados.</li>
-      <li>Fe firme ante la persecución.</li>
-    </ul>
-
-    <h3>Testimonio de martirio</h3>
-    <p>
-      Arrestado en 1936, se mantuvo firme en su fe católica.  
-      En sus últimos momentos perdonó a sus ejecutores y confió su alma a Dios.
-    </p>
-
-    <h3>Legado</h3>
-    <ul>
-      <li>Ejemplo de santidad para laicos y familias cristianas.</li>
-      <li>Modelo de perdón y de fe en tiempos de prueba.</li>
-      <li>Beatificado por la Iglesia como mártir del siglo XX.</li>
-    </ul>
-  </div>
-
-  <!-- Línea de tiempo -->
-  <div class="section">
-    <h2>Línea de tiempo</h2>
-    <ul>
-      <li><strong>1879:</strong> Nace en Tortosa.</li>
-      <li><strong>1900–1930:</strong> Vida familiar y servicio en la parroquia.</li>
-      <li><strong>1936:</strong> Persecución religiosa en España.</li>
-      <li><strong>13 de agosto de 1936:</strong> Muere mártir en Barcelona.</li>
-      <li><strong>Beatificación:</strong> Reconocido como mártir por la Iglesia.</li>
-    </ul>
-  </div>
-
-  <!-- Curiosidades -->
-  <div class="section">
-    <h2>Curiosidades</h2>
-    <ul>
-      <li>Rezaba el rosario todos los días, incluso mientras trabajaba.</li>
-      <li>Su retrato está presente en varias parroquias de Cataluña.</li>
-      <li>Su vida inspira a muchos grupos parroquiales y movimientos familiares.</li>
-    </ul>
-  </div>
-
-  <!-- TRIVIA -->
-  <div class="section">
-    <h2>Trivia: Ponte a Prueba</h2>
-
-    <div style="background-color:#ffe0cc; padding:15px; border-radius:5px; margin-top:10px;">
-      <p>¡Responde tres preguntas sencillas sobre la vida del Beato José Ferrer Esteve!</p>
-
-      <a href="./jose ferrer esteve.html" 
-         style="display:inline-block; background-color:#e07a2e; color:white; padding:12px 22px; 
-                border-radius:6px; text-decoration:none; font-weight:bold; margin-top:10px;">
-         ¡Jugar Trivia!
-      </a>
+      <div class="cita">“La santidad también florece en la vida sencilla de un padre de familia.”</div>
     </div>
-  </div>
 
-  <img src="./jose ferrer esteve.jpg">
-  <img src="./images.jpg">
+    <!-- Vida espiritual -->
+    <div class="section">
+      <h2>Vida espiritual y testimonio</h2>
+      <p>
+        Su testimonio fue el de un cristiano sencillo pero profundamente fiel.
+        Su vida cotidiana, marcada por la caridad y la oración, fue la expresión más clara de su fe.
+      </p>
+
+      <h3>Rasgos destacados</h3>
+      <ul>
+        <li>Gran devoción a la Eucaristía y al Santo Rosario.</li>
+        <li>Servicio constante en su parroquia y ayuda a los más necesitados.</li>
+        <li>Fe firme ante la persecución.</li>
+      </ul>
+
+      <h3>Testimonio de martirio</h3>
+      <p>
+        Arrestado en 1936, se mantuvo firme en su fe católica.
+        En sus últimos momentos perdonó a sus ejecutores y confió su alma a Dios.
+      </p>
+
+      <h3>Legado</h3>
+      <ul>
+        <li>Ejemplo de santidad para laicos y familias cristianas.</li>
+        <li>Modelo de perdón y de fe en tiempos de prueba.</li>
+        <li>Beatificado por la Iglesia como mártir del siglo XX.</li>
+      </ul>
+    </div>
+
+    <!-- Línea de tiempo -->
+    <div class="section">
+      <h2>Línea de tiempo</h2>
+      <ul>
+        <li><strong>1879:</strong> Nace en Tortosa.</li>
+        <li><strong>1900–1930:</strong> Vida familiar y servicio en la parroquia.</li>
+        <li><strong>1936:</strong> Persecución religiosa en España.</li>
+        <li><strong>13 de agosto de 1936:</strong> Muere mártir en Barcelona.</li>
+        <li><strong>Beatificación:</strong> Reconocido como mártir por la Iglesia.</li>
+      </ul>
+    </div>
+
+    <!-- Curiosidades -->
+    <div class="section">
+      <h2>Curiosidades</h2>
+      <ul>
+        <li>Rezaba el rosario todos los días, incluso mientras trabajaba.</li>
+        <li>Su retrato está presente en varias parroquias de Cataluña.</li>
+        <li>Su vida inspira a muchos grupos parroquiales y movimientos familiares.</li>
+      </ul>
+    </div>
+
+    <!-- TRIVIA -->
+    <div class="section">
+      <h2>Trivia: Ponte a Prueba</h2>
+
+      <div class="trivia-box">
+        <p>¡Responde tres preguntas sencillas sobre la vida del Beato José Ferrer Esteve!</p>
+
+        <a href="./jose ferrer esteve.html">
+          ¡Jugar Trivia!
+        </a>
+      </div>
+    </div>
+
+    <!-- IMÁGENES AL LADO Y MÁS CHICAS -->
+    <div class="imagenes-contenedor">
+      <img src="./jose ferrer esteve.jpg" class="imagen">
+      <img src="./images.jpg" class="imagen">
+    </div>
+
+  </div>
 
   <footer>
     <p>Página elaborada con fines educativos sobre la vida del Beato José Ferrer Esteve.</p>
