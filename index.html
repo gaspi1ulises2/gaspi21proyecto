@@ -5,7 +5,6 @@
   <title>Beato José Ferrer Esteve</title>
 
   <style>
-    /* ---------- ESTILO GENERAL ---------- */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -21,25 +20,12 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.7em;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 1.1em;
-      opacity: 0.9;
-    }
-
-    /* Contenedor general */
     .contenido {
       width: 90%;
       max-width: 900px;
       margin: 40px auto;
     }
 
-    /* ---------- SECCIONES ---------- */
     .section {
       background: #d6e5af;
       padding: 25px;
@@ -54,21 +40,6 @@
       color: #1e2d15;
     }
 
-    ul {
-      margin-left: 20px;
-    }
-
-    /* ---------- CITA ---------- */
-    .cita {
-      font-style: italic;
-      background: #eef3dd;
-      padding: 12px;
-      border-left: 4px solid #6d8c3a;
-      border-radius: 5px;
-      margin-top: 15px;
-    }
-
-    /* ---------- TRIVIA ---------- */
     .trivia-box {
       background: #ffe0cc;
       padding: 15px;
@@ -76,18 +47,18 @@
       margin-top: 15px;
     }
 
-    .trivia-box a {
+    .trivia-box button {
       display: inline-block;
       background: #e07a2e;
       padding: 12px 20px;
-      text-decoration: none;
+      border: none;
+      cursor: pointer;
       color: white;
       font-weight: bold;
       border-radius: 6px;
       margin-top: 10px;
     }
 
-    /* ---------- IMÁGENES (AHORA MÁS CHICAS Y AL LADO) ---------- */
     .imagenes-contenedor {
       display: flex;
       justify-content: center;
@@ -99,7 +70,6 @@
 
     .imagen {
       width: 230px;
-      height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
@@ -111,6 +81,34 @@
       background: #0f2915;
       color: white;
       font-size: 0.9em;
+    }
+
+    /* ESTILO DEL MODAL */
+    .modal {
+      display:none; 
+      position:fixed; 
+      left:0; 
+      top:0; 
+      width:100%; 
+      height:100%; 
+      background-color:rgba(0,0,0,0.5); 
+      z-index:1000;
+    }
+
+    .modal-contenido {
+      background:white; 
+      margin:5% auto; 
+      padding:20px; 
+      border-radius:10px; 
+      max-width:600px; 
+      max-height:80vh; 
+      overflow-y:auto;
+    }
+
+    .cerrar {
+      float:right; 
+      cursor:pointer; 
+      font-size:24px;
     }
   </style>
 </head>
@@ -129,70 +127,15 @@
       <h2>Biografía</h2>
       <p>
         José Ferrer Esteve fue un laico católico español, esposo y padre de familia,
-        recordado por su profunda fe, su vida de caridad y su testimonio heroico durante
-        la persecución religiosa de 1936. Fue uno de los mártires beatificados por su
-        valentía y fidelidad al Evangelio.
+        recordado por su profunda fe, su caridad y su martirio durante la persecución
+        religiosa de 1936.
       </p>
-
       <ul>
-        <li>Nació en Tortosa en una familia profundamente cristiana.</li>
-        <li>Destacado por su vida de oración y servicio en la parroquia.</li>
-        <li>Ayudaba a los pobres y a los enfermos de su comunidad.</li>
-        <li>Fue detenido durante la persecución religiosa por ser católico practicante.</li>
-        <li>Murió perdonando a sus perseguidores, entregando su vida por su fe.</li>
-      </ul>
-
-      <div class="cita">“La santidad también florece en la vida sencilla de un padre de familia.”</div>
-    </div>
-
-    <!-- Vida espiritual -->
-    <div class="section">
-      <h2>Vida espiritual y testimonio</h2>
-      <p>
-        Su testimonio fue el de un cristiano sencillo pero profundamente fiel.
-        Su vida cotidiana, marcada por la caridad y la oración, fue la expresión más clara de su fe.
-      </p>
-
-      <h3>Rasgos destacados</h3>
-      <ul>
-        <li>Gran devoción a la Eucaristía y al Santo Rosario.</li>
-        <li>Servicio constante en su parroquia y ayuda a los más necesitados.</li>
-        <li>Fe firme ante la persecución.</li>
-      </ul>
-
-      <h3>Testimonio de martirio</h3>
-      <p>
-        Arrestado en 1936, se mantuvo firme en su fe católica.
-        En sus últimos momentos perdonó a sus ejecutores y confió su alma a Dios.
-      </p>
-
-      <h3>Legado</h3>
-      <ul>
-        <li>Ejemplo de santidad para laicos y familias cristianas.</li>
-        <li>Modelo de perdón y de fe en tiempos de prueba.</li>
-        <li>Beatificado por la Iglesia como mártir del siglo XX.</li>
-      </ul>
-    </div>
-
-    <!-- Línea de tiempo -->
-    <div class="section">
-      <h2>Línea de tiempo</h2>
-      <ul>
-        <li><strong>1879:</strong> Nace en Tortosa.</li>
-        <li><strong>1900–1930:</strong> Vida familiar y servicio en la parroquia.</li>
-        <li><strong>1936:</strong> Persecución religiosa en España.</li>
-        <li><strong>13 de agosto de 1936:</strong> Muere mártir en Barcelona.</li>
-        <li><strong>Beatificación:</strong> Reconocido como mártir por la Iglesia.</li>
-      </ul>
-    </div>
-
-    <!-- Curiosidades -->
-    <div class="section">
-      <h2>Curiosidades</h2>
-      <ul>
-        <li>Rezaba el rosario todos los días, incluso mientras trabajaba.</li>
-        <li>Su retrato está presente en varias parroquias de Cataluña.</li>
-        <li>Su vida inspira a muchos grupos parroquiales y movimientos familiares.</li>
+        <li>Nació en Tortosa en una familia cristiana.</li>
+        <li>Destacado por su vida de oración y servicio.</li>
+        <li>Siempre ayudó a los pobres y enfermos.</li>
+        <li>Fue detenido por ser católico practicante.</li>
+        <li>Murió perdonando a sus perseguidores.</li>
       </ul>
     </div>
 
@@ -201,15 +144,13 @@
       <h2>Trivia: Ponte a Prueba</h2>
 
       <div class="trivia-box">
-        <p>¡Responde tres preguntas sencillas sobre la vida del Beato José Ferrer Esteve!</p>
+        <p>¡Responde cinco preguntas sobre el Beato José Ferrer Esteve!</p>
 
-        <a href="./jose ferrer esteve.html">
-          ¡Jugar Trivia!
-        </a>
+        <button id="abrirTrivia">¡Jugar Trivia!</button>
       </div>
     </div>
 
-    <!-- IMÁGENES AL LADO Y MÁS CHICAS -->
+    <!-- IMÁGENES -->
     <div class="imagenes-contenedor">
       <img src="./jose ferrer esteve.jpg" class="imagen">
       <img src="./images.jpg" class="imagen">
@@ -218,9 +159,95 @@
   </div>
 
   <footer>
-    <p>Página elaborada con fines educativos sobre la vida del Beato José Ferrer Esteve.</p>
-    <p>Última actualización: noviembre 2025.</p>
+    <p>Página elaborada con fines educativos.</p>
   </footer>
+
+  <!-- ------------------ MODAL DE TRIVIA ------------------ -->
+  <div id="modalTrivia" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+
+      <h2>Trivia sobre el Beato José Ferrer Esteve</h2>
+
+      <form id="formTrivia">
+        <p><strong>1.</strong> ¿Dónde nació José Ferrer Esteve?</p>
+        <label><input type="radio" name="p1" value="Tortosa"> Tortosa</label><br>
+        <label><input type="radio" name="p1" value="Barcelona"> Barcelona</label><br>
+        <label><input type="radio" name="p1" value="Valencia"> Valencia</label><br><br>
+
+        <p><strong>2.</strong> ¿Qué rol tenía en la Iglesia?</p>
+        <label><input type="radio" name="p2" value="Laico y padre de familia"> Laico y padre de familia</label><br>
+        <label><input type="radio" name="p2" value="Sacerdote"> Sacerdote</label><br>
+        <label><input type="radio" name="p2" value="Religioso escolapio"> Religioso escolapio</label><br><br>
+
+        <p><strong>3.</strong> ¿En qué año fue martirizado?</p>
+        <label><input type="radio" name="p3" value="1936"> 1936</label><br>
+        <label><input type="radio" name="p3" value="1920"> 1920</label><br>
+        <label><input type="radio" name="p3" value="1945"> 1945</label><br><br>
+
+        <p><strong>4.</strong> ¿Qué virtud destacó especialmente en su vida?</p>
+        <label><input type="radio" name="p4" value="Caridad y ayuda a los pobres"> Caridad y ayuda a los pobres</label><br>
+        <label><input type="radio" name="p4" value="Riqueza material"> Riqueza material</label><br>
+        <label><input type="radio" name="p4" value="Trabajo militar"> Trabajo militar</label><br><br>
+
+        <p><strong>5.</strong> ¿Dónde murió mártir?</p>
+        <label><input type="radio" name="p5" value="Barcelona"> Barcelona</label><br>
+        <label><input type="radio" name="p5" value="Madrid"> Madrid</label><br>
+        <label><input type="radio" name="p5" value="Sevilla"> Sevilla</label><br><br>
+
+        <button type="submit">Enviar respuestas</button>
+      </form>
+
+      <div id="resultado"></div>
+    </div>
+  </div>
+
+  <!-- ------------- SCRIPT DEL MODAL Y LA TRIVIA ------------- -->
+  <script>
+    const modal = document.getElementById("modalTrivia");
+    const btnAbrir = document.getElementById("abrirTrivia");
+    const btnCerrar = document.querySelector(".cerrar");
+
+    btnAbrir.onclick = () => { modal.style.display = "block"; };
+    btnCerrar.onclick = () => { modal.style.display = "none"; };
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+
+    document.getElementById("formTrivia").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let puntaje = 0;
+      let salida = "";
+
+      const respuestas = {
+        p1: "Tortosa",
+        p2: "Laico y padre de familia",
+        p3: "1936",
+        p4: "Caridad y ayuda a los pobres",
+        p5: "Barcelona"
+      };
+
+      for (let i = 1; i <= 5; i++) {
+        let r = document.querySelector(`input[name="p${i}"]:checked`);
+        if (r) {
+          if (r.value === respuestas[`p${i}`]) {
+            puntaje++;
+            salida += `${i}. ✅ Correcta<br>`;
+          } else {
+            salida += `${i}. ❌ Incorrecta. Correcta: ${respuestas[`p${i}`]}<br>`;
+          }
+        } else {
+          salida += `${i}. ❌ No respondida. Correcta: ${respuestas[`p${i}`]}<br>`;
+        }
+      }
+
+      salida += `<h4>Puntaje final: ${puntaje} de 5</h4>`;
+      if (puntaje === 5) salida += "🎉 ¡Excelente trabajo!";
+      else if (puntaje >= 3) salida += "😊 Muy bien, vas aprendiendo.";
+      else salida += "📘 Podés repasar un poco más.";
+
+      document.getElementById("resultado").innerHTML = salida;
+    });
+  </script>
 
 </body>
 </html>
